@@ -29,8 +29,8 @@ class BookApp extends Component {
   render() {
     return (
       <div className='app'>
-        <ListBook books={this.state.books} onUpdate={this.updateBooks}/>
-        <BookSearch/>
+        {/* <ListBook books={this.state.books} onUpdate={this.updateBooks}/> */}
+        <BookSearch shelfBooks={this.state.books} onUpdate={this.updateBooks}/>
       </div>
     )
   }
