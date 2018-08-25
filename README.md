@@ -3,9 +3,10 @@
 ## Table of Contents
 
 * [About](#About)
-* [References](#References)
+* [Requirement](#Requirement)
 * [How to run](#How)
-* [What to be done](#How)
+* [How to use the app](#How)
+* [Note](#Note)
 
 ## About
 
