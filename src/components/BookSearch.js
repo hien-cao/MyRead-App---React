@@ -14,6 +14,7 @@ class BookSearch extends Component {
   state = {
     searchBooks: [],
     query: '',
+    searchError: false
   }
 
   handleSearch = evt => {
@@ -26,19 +27,26 @@ class BookSearch extends Component {
 
   searchBooks = query => {
     if (query) {
-      BooksAPI.search(query, 20).then(books => {
-        if (books) {
-          books = books.filter(book => book.imageLinks)
+      BooksAPI.search(query).then(books => {
+        if (books.length > 0) {
+          console.log(books)
+          // Filter books without image
+          books = books.filter(book => (book.imageLinks))
           books = this.changeBookShelf(books)
           this.setState({
             searchBooks: books
+          })
+        } else {
+          this.setState({
+            searchError: true
           })
         }
       })
     } else {
       this.setState({
         searchBooks: [],
-        query: ''
+        query: '',
+        searchError: false
       })
     }
   }
@@ -61,7 +69,7 @@ class BookSearch extends Component {
   }
 
   render() {
-    const {searchBooks, query} = this.state
+    const {searchBooks, query, searchError} = this.state
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -71,11 +79,15 @@ class BookSearch extends Component {
           </div>
         </div>
         <div className="search-books-results">
+          {searchBooks.length > 0 && <h3 className='search-result-statement'>The search finds {searchBooks.length} books</h3>}
           <ol className="books-grid">
-            {query && searchBooks.map((book) => (
+            {searchBooks.length > 0 && searchBooks.map((book) => (
               <Book key={book.id} book={book} onUpdate={shelf => this.updateBooks(book, shelf)}/>
             ))}
           </ol>
+          {searchError && (
+            <h3 className='search-result-statement'>The search finds zero books. Please try again!</h3>
+          )}
         </div>
       </div>
     )
