@@ -11,15 +11,25 @@ class BookApp extends Component {
   }
 
   componentDidMount() {
+    this.fetchBooks()
+  }
+
+  fetchBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
+    })
+  }
+
+  updateBooks = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      this.fetchBooks()
     })
   }
 
   render() {
     return (
       <div className='app'>
-        <ListBook/>
+        <ListBook books={this.state.books} onUpdate={this.updateBooks}/>
         <BookSearch/>
       </div>
     )

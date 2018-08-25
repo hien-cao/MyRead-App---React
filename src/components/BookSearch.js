@@ -5,7 +5,7 @@ class BookSearch extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={() => ()}>Close</a>
+          <a className="close-search" onClick={() => ({})}>Close</a>
           <div className="search-books-input-wrapper">
             <input type="text" placeholder="Search by title or author"/>
           </div>
