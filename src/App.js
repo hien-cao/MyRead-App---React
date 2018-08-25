@@ -1,10 +1,21 @@
 import React, {Component} from 'react'
-// import * as BooksAPI from './utils/BooksAPI'
+import * as BooksAPI from './utils/BooksAPI'
 import ListBook from './components/ListBook'
 import BookSearch from './components/BookSearch'
 import './App.css'
 
 class BookApp extends Component {
+
+  state = {
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books: books })
+    })
+  }
+
   render() {
     return (
       <div className='app'>
