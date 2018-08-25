@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 import PropTypes from 'prop-types'
 
@@ -23,7 +24,7 @@ class ListBook extends Component {
           <BookShelf books={books.filter(book => book.shelf === 'wantToRead')} name='Want to Read' onUpdate={this.props.onUpdate}/>
         </div>
         <div className='open-search'>
-          <a onClick={() => ({})}>Add a book</a>
+          <Link to='/search'>Add a book</Link>
         </div>
       </div>
     )
