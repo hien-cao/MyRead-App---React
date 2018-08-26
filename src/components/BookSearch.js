@@ -29,9 +29,6 @@ class BookSearch extends Component {
     if (query) {
       BooksAPI.search(query).then(books => {
         if (books.length > 0) {
-          console.log(books)
-          // Filter books without image
-          books = books.filter(book => (book.imageLinks))
           books = this.changeBookShelf(books)
           this.setState({
             searchBooks: books

@@ -14,6 +14,8 @@ class Book extends Component {
 
   render() {
     const book = this.props.book
+    let coverImage = book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.smallThumbnail : '../images/no-thumbnail.png'
+  
     return (
       <li>
         <div className='book'>
@@ -21,7 +23,7 @@ class Book extends Component {
             <div className='book-cover' style={{
               width: 128,
               height: 193,
-              backgroundImage: `url('${book.imageLinks.thumbnail}')`
+              backgroundImage: `url('${coverImage}')`
             }}></div>
             <div className='book-shelf-changer'>
               <select onChange={this.changeBookShelf} value={book.shelf}>
