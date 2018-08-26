@@ -35,6 +35,7 @@ class BookSearch extends Component {
           })
         } else {
           this.setState({
+            searchBooks: [],
             searchError: true
           })
         }
