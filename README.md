@@ -1,12 +1,16 @@
 # My Read (Udacity FEND)
 
+![Part of the Udacity Front-End Web Development Nanodegree](https://img.shields.io/badge/Udacity-Front--End%20Web%20Developer%20Nanodegree-02b3e4.svg)
+
 ## Table of Contents
 
-* [About](#About)
-* [Requirement](#Requirement)
-* [How to run](#How)
-* [How to use the app](#How)
-* [Note](#Note)
+- [My Read (Udacity FEND)](#my-read-udacity-fend)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Requirement](#requirement)
+  - [How to run](#how-to-run)
+  - [How to use the app](#how-to-use-the-app)
+  - [Note](#note)
 
 ## About
 
